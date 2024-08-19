@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    
+}
+
+/* Navigation bar */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.radio-group {
+    margin-bottom: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.radio-group input {
+    margin-left: 30px;
+
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.greeting-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.greeting-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.letter {
+    text-align: left;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    max-width: 800px;
+    font-size: 18px;
+    color: #333;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    margin: 5px;
+}
+
+#pdfIframe {
+    width: 0;
+    height: 0;
+    border: 2px solid red;
+    background-color: black;
+    color: white;
+}

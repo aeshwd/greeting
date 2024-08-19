@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">GreetFest</a>
+           <!-- <ul>
+                <li><a href="rakshabandhan.html">Rakshabandhan</a></li>
+                <li><a href="diwali.html">Diwali</a></li>
+                <li><a href="christmas.html">Christmas</a></li>
+                <li><a href="eid.html">Eid</a></li>
+                <li><a href="holi.html">Holi</a></li>
+                <li><a href="thanksgiving.html">Thanksgiving</a></li>
+               
+            </ul> -->
+        </div>
+    </nav>
+
+
+    <div class="greeting-container">
+        <img src="rakshabandhan.jpeg" alt="Rakshabandhan Celebration" id="greetingImage" style="display:none;">
+        <div class="letter" id="greetingLetter">
+            <!-- Greeting letter will be inserted here by JavaScript -->
+        </div>
+        <div class="button-container">
+            <button onclick="downloadPDF()">Download as PDF</button>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        // Retrieve query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const relation = urlParams.get('relation');
+        
+        // Construct the greeting message
+        const letter = `Dear ${name},\n\nOn this joyous occasion of Rakshabandhan, we celebrate the special bond between a brother and sister. Rakshabandhan is not just a festival; it is a celebration of love, respect, and commitment towards each other. This festival marks the day when we express our gratitude and affection towards our siblings, acknowledging the crucial role they play in our lives. It’s a time to reflect on the shared experiences, challenges, and triumphs that have strengthened our relationship over the years. Rakshabandhan is more than just a tradition; it’s a testament to the enduring connection we share. As you celebrate this special day with your loved ones, may your bond strengthen and your hearts fill with happiness. It’s a moment to cherish the joy of being together and to make new memories that will last a lifetime. Wishing you a day filled with joy, laughter, and cherished moments. May your life be blessed with health, success, and prosperity. Happy Rakshabandhan to you and your wonderful ${relation}! May this festival bring lots of happiness and positivity to your life. Let’s celebrate the bond that makes life beautiful and meaningful. Here’s to many more years of shared joy and love. Enjoy this festive season and create moments that will become treasured memories.`;
+
+        // Display the letter
+        document.getElementById('greetingLetter').textContent = letter;
+
+        // Function to download the letter as a PDF
+        function downloadPDF() {
+            const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+            // Add image to PDF
+            const img = document.getElementById('greetingImage');
+            const imgData = img.src;
+            doc.addImage(imgData, 'JPEG', 10, 10, 190, 100); // Adjust size as needed
+
+            // Add text to PDF (ensure it starts below the image and wraps properly)
+            doc.setFontSize(12);
+            doc.text(letter, 10, 120, { maxWidth: 190 }); // Adjust text position and maxWidth as needed
+
+            // Save the PDF
+            doc.save('Rakshabandhan_Greeting_Letter.pdf');
+        }
+
+        // Function to prepare email with PDF attachment (opens email client but cannot attach files directly)
+        function prepareEmail() {
+            const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+            // Add image to PDF
+            const img = document.getElementById('greetingImage');
+            const imgData = img.src;
+            doc.addImage(imgData, 'JPEG', 10, 10, 190, 100);
+
+            // Add text to PDF
+            doc.setFontSize(12);
+            doc.text(letter, 10, 120, { maxWidth: 190 });
+
+            // Generate PDF and create a Blob URL
+            const pdfBlob = doc.output('blob');
+            const pdfUrl = URL.createObjectURL(pdfBlob);
+
+           
+        }
+    </script>
+</body>
+</html>
